@@ -1,6 +1,6 @@
 class Person
-  attr_reader :id, :name, :age
-  attr_writer :name, :age
+  attr_accessor :name, :age
+  attr_reader :id
 
   def initialize(id, age, parent_permission: true, name: 'Unknown')
     @id = id
@@ -9,7 +9,7 @@ class Person
     @parent_permission = parent_permission
   end
 
-  def is_permitted?
+  def permitted?
     of_age? || @parent_permission
   end
 
@@ -19,4 +19,3 @@ class Person
     @age >= 18
   end
 end
-
