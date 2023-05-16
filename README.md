@@ -10,7 +10,6 @@
   - [🛠 Built With](#built-with)
   - [Tech Stack](#tech-stack)
   - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -50,11 +49,6 @@ By building this application, I use Ruby.
 - **[Add #Person-class]**
 - **[Add #Student-class]**
 - **[Add #Teacher-class]**
-
-
-<!-- LIVE DEMO -->
- ## 🚀 Live Demo <a name="live-demo"></a> --
-- Coming soon...
 
 <!-- GETTING STARTED -->
 
