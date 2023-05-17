@@ -1,15 +1,15 @@
 class Nameable
   def correct_name
-    raise NotImplementedError, "Implement the correct_name method."
+    raise NotImplementedError, 'Implement the correct_name method.'
   end
 end
 
-class Person
+class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id
 
   def initialize(age, parent_permission: true, name: 'Unknown')
-    @id = id
+    super()
     @name = name
     @age = age
     @parent_permission = parent_permission
@@ -19,7 +19,9 @@ class Person
     of_age? || @parent_permission
   end
 
-  private
+  def correct_name
+    @name
+  end
 
   def of_age?
     @age >= 18
