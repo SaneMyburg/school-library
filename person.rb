@@ -44,3 +44,17 @@ class CapitalizeDecorator < BaseDecorator
     @nameable.correct_name.capitalize
   end
 end
+
+class TrimmerDecorator < BaseDecorator
+  def correct_name
+    name = @nameable.correct_name
+    name.length > 10 ? name[0..9] : name
+  end
+end
+
+person = Person.new(22, name: 'maximilianus')
+  puts person.correct_name
+  capitalizedPerson = CapitalizeDecorator.new(person)
+  puts capitalizedPerson.correct_name
+  capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
+  puts capitalizedTrimmedPerson.correct_name
