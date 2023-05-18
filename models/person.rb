@@ -31,8 +31,10 @@ class Person < Nameable
     rentals.map(&:book)
   end
 
-  def add_rental(rental)
-    rental.person = self
+  def add_rental(book, date)
+    rental = Rental.new(date: date, book: book, person: self)
+    rentals << rental
+    rental
   end
 end
 
@@ -49,14 +51,8 @@ person2 = Person.new(20, name: 'Zoe', parent_permission: true)
 book1 = Book.new(title: 'The Great Gatsby', author: 'F. Scott Fitzgerald')
 book2 = Book.new(title: 'To Kill a Mockingbird', author: 'Harper Lee')
 
-rental1 = Rental.new(date: '2023-05-11', book: book1, person: person1)
-rental2 = Rental.new(date: '2023-05-19', book: book2, person: person2)
-
-person1.add_rental(rental1)
-person2.add_rental(rental2)
-
-book1.add_rental(rental1)
-book2.add_rental(rental2)
+rental1 = person1.add_rental(book1, '2023-05-11')
+rental2 = person2.add_rental(book2, '2023-05-19')
 
 puts rental1.person.name
 puts rental2.person.name
