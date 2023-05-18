@@ -8,12 +8,6 @@ class Student < Person
     super(age: age, name: name, parent_permission: parent_permission)
   end
 
-  def add_student(student)
-    students << student
-    student.classroom = self
-    self.students << student
-  end
-
   def play_hooky
     '¯\\(ツ)/¯'
   end
