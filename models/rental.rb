@@ -1,25 +1,18 @@
 require_relative 'book'
 
 class Rental
-  attr_accessor :date, :person
-  attr_reader :book
+  attr_accessor :date, :person, :book
 
-  @@all = []
+  @all = []
+
+  class << self
+    attr_reader :all
+  end
 
   def initialize(date:, person:, book:)
     @date = date
     @person = person
     @book = book
-    @@all << self
-  end
-
-  def self.all
-    @@all
-  end
-
-  def book=(book)
-    @book = book
-    book.add_rental(self) unless book.rentals.include?(self)
+    self.class.all << self
   end
 end
-

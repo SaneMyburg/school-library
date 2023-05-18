@@ -43,8 +43,29 @@ puts capitalized_person.correct_name
 capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
 puts capitalized_trimmed_person.correct_name
 
-book = Book.new(title: 'The Great Gatsby', author: 'F. Scott Fitzgerald')
-rental = Rental.new(date: '2023-05-18', person: person, book: book)
+person1 = Person.new(32, name: 'Heldain', parent_permission: true)
+person2 = Person.new(20, name: 'Zoe', parent_permission: true)
 
-puts rental.book.title
-puts rental.person.name
+book1 = Book.new(title: 'The Great Gatsby', author: 'F. Scott Fitzgerald')
+book2 = Book.new(title: 'To Kill a Mockingbird', author: 'Harper Lee')
+
+rental1 = Rental.new(date: '2023-05-11', book: book1, person: person1)
+rental2 = Rental.new(date: '2023-05-19', book: book2, person: person2)
+
+person1.add_rental(rental1)
+person2.add_rental(rental2)
+
+book1.add_rental(rental1)
+book2.add_rental(rental2)
+
+puts rental1.person.name
+puts rental2.person.name
+
+puts person1.rentals.count
+puts person2.rentals.count
+
+person1.rentals.each { |rental| puts rental.book.title }
+person2.rentals.each { |rental| puts rental.book.title }
+
+book1.rentals.each { |rental| puts "#{rental.book.title} was rented by #{rental.person.name}" }
+book2.rentals.each { |rental| puts "#{rental.book.title} was rented by #{rental.person.name}" }

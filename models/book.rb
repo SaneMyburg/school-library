@@ -17,6 +17,6 @@ class Book
   end
 
   def add_rental(rental)
-    rental.book = self
+    rental.instance_variable_set(:@book, self)
   end
 end
