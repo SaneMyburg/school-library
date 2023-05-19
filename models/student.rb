@@ -22,16 +22,16 @@ class Student < Person
   end
 end
 
-# class_a = Classroom.new(label: 'class A')
-# class_b = Classroom.new(label: 'class B')
+class_a = Classroom.new(label: 'class A')
+class_b = Classroom.new(label: 'class B')
 
-# student1 = Student.new(12, name: 'Sipho')
-# student2 = Student.new(15, name: 'Lubanzi')
+student1 = Student.new(12, name: 'Sipho')
+student2 = Student.new(15, name: 'Lubanzi')
 
-# class_b.add_student(student2)
+class_b.add_student(student2)
 
-# student1.assign_classroom(class_a)
+student1.assign_classroom(class_a)
 
-# class_a.students.each { |student| puts student.name }
+class_a.students.each { |student| puts student.name }
 
-# puts student1.classroom_details.label
+puts student1.classroom_details.label
