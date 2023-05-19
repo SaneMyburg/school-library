@@ -17,7 +17,7 @@ module CreateEntity
   end
 
   def create_student
-    binding.pry 
+    binding 'pry'
     print 'Age: '
     age = gets.chomp
     print 'Name: '
@@ -30,6 +30,7 @@ module CreateEntity
     end
 
     new_student = Student.new(age, name: name, parent_permission: permission)
+    save_new_people(new_student)
     puts "New person (Student) created successfully!\n\n"
   end
 
