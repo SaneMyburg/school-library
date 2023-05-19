@@ -27,7 +27,7 @@ module CreateEntity
       break if %w[n y].include? permission.downcase
     end
 
-    new_student = Student.new(age: age, name: name, parent_permission: permission)
+    new_student = Student.new(age, name: name, parent_permission: permission)
     save_new_people(new_student)
     puts "New person (Student) created successfully!\n\n"
   end
@@ -187,25 +187,27 @@ module CreateEntity
         print_menu
         option = gets.chomp.to_i
         puts "\n"
+        process_option(option)
+        break if option == 7
+      end
+    end
 
-        case option
-        when 1
-          list_all_books
-        when 2
-          list_all_people
-        when 3
-          create_person
-        when 4
-          create_book
-        when 5
-          create_rental
-        when 6
-          list_person_rentals
-        when 7
-          break
-        else
-          puts "Invalid option! Please choose a valid option.\n\n"
-        end
+    def process_option(option)
+      case option
+      when 1
+        list_all_books
+      when 2
+        list_all_people
+      when 3
+        create_person
+      when 4
+        create_book
+      when 5
+        create_rental
+      when 6
+        list_person_rentals
+      else
+        puts "Invalid option! Please choose a valid option.\n\n"
       end
     end
 
