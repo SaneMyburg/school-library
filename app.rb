@@ -40,7 +40,7 @@ module CreateEntity
     print 'Specialization: '
     specialization = gets.chomp
 
-    new_teacher = Teacher.new(age: age, name: name, specialization: specialization)
+    new_teacher = Teacher.new(age, specialization, parent_permission: true, name: name)
     save_new_people(new_teacher)
     puts "New person (Teacher) created successfully!\n\n"
   end
