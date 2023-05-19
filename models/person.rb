@@ -9,6 +9,7 @@ class Person < Nameable
 
   def initialize(age, parent_permission: true, name: 'Unknown')
     super()
+    @id = generate_random_id
     @name = name
     @age = age
     @parent_permission = parent_permission
@@ -35,6 +36,10 @@ class Person < Nameable
     rental = Rental.new(date: date, book: book, person: self)
     rentals << rental
     rental
+  end
+
+  def generate_random_id
+    (rand * 1000).floor
   end
 end
 
