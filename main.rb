@@ -20,23 +20,27 @@ class App
     end
   end
 
+  OPTION_ACTIONS = {
+    1 => :list_all_books,
+    2 => :list_all_people,
+    3 => :create_person,
+    4 => :create_book,
+    5 => :create_rental,
+    6 => :list_person_rentals,
+    7 => :quit
+  }.freeze
+
   def process_option(option)
-    case option
-    when 1
-      list_all_books
-    when 2
-      list_all_people
-    when 3
-      create_person
-    when 4
-      create_book
-    when 5
-      create_rental
-    when 6
-      list_person_rentals
+    action = OPTION_ACTIONS[option]
+    if action
+      send(action)
     else
       puts "Invalid option! Please choose a valid option.\n\n"
     end
+  end
+
+  def quit
+    puts 'Thank you for using School Library 😊'
   end
 
   private
@@ -55,7 +59,7 @@ class App
 
   def print_menu
     puts 'Welcome to School Library App!'
-    puts
+    puts ''
     puts 'Please choose an option by entering a number:'
     puts '1) List all books'
     puts '2) List all people'
