@@ -13,7 +13,7 @@ class Menu
     print 'Select an option: '
   end
 
-  def get_option
+  def getoption
     gets.chomp.to_i
   end
 end
