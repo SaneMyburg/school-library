@@ -41,7 +41,7 @@ module DisplayEntity
       person_id = gets.chomp
       puts 'Rentals:'
 
-      selected_rentals = @library.all_rentals.select do |rental|
+      selected_rentals = @all_rentals.select do |rental|
         rental.person.id.to_i == person_id.to_i
       end
 
